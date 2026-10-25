@@ -1,0 +1,255 @@
+@import "tailwindcss" source(none);
+
+@source "../app";
+@source "../components";
+@source "../lib";
+
+@theme {
+  --color-ink: #2b2430;
+  --color-pink: #f7567c;
+  --color-cream: #fffae3;
+  --color-eggshell: #fcfcfc;
+  --color-muted: #7c7076;
+  --color-line: #efe3d3;
+}
+
+body {
+  font-family: var(--font-outfit), sans-serif;
+  background: var(--color-eggshell);
+  color: var(--color-ink);
+}
+
+h1,
+h2,
+h3,
+h4,
+.disp {
+  font-family: var(--font-fraunces), serif;
+  letter-spacing: -0.025em;
+}
+
+.kicker {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--color-line);
+  border-radius: 22px;
+  box-shadow: 0 18px 40px -32px rgba(43, 36, 48, 0.28);
+}
+
+.inp {
+  width: 100%;
+  border: 1px solid #e6d8c7;
+  border-radius: 14px;
+  background: #fff;
+  padding: 0.85rem 1rem;
+  font-weight: 500;
+  font-size: 1rem;
+  outline: none;
+  transition:
+    border-color 0.16s,
+    box-shadow 0.16s;
+}
+
+.inp:focus {
+  border-color: var(--color-pink);
+  box-shadow: 0 0 0 4px rgba(247, 86, 124, 0.12);
+}
+
+.opt {
+  border: 1px solid var(--color-line);
+  border-radius: 16px;
+  background: #fff;
+  text-align: left;
+  padding: 0.9rem;
+  transition:
+    border-color 0.16s,
+    background 0.16s,
+    transform 0.16s;
+}
+
+.opt:hover {
+  border-color: #f3a6b8;
+}
+
+.opt.on {
+  border-color: var(--color-pink);
+  background: var(--color-cream);
+  box-shadow: inset 0 0 0 1px var(--color-pink);
+}
+
+.btn {
+  background: var(--color-pink);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 0.9rem 1.4rem;
+  transition:
+    background 0.16s,
+    transform 0.16s;
+}
+
+.btn:hover {
+  background: #e8466c;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:disabled {
+  background: #f1e8dc;
+  color: #a99c9f;
+  pointer-events: none;
+}
+
+.btn-ink {
+  background: var(--color-ink);
+  color: var(--color-cream);
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 0.9rem 1.4rem;
+  transition: background 0.16s;
+}
+
+.btn-ink:hover {
+  background: #423746;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-ink);
+  font-weight: 600;
+  border: 1px solid #e2d4c3;
+  border-radius: 999px;
+  padding: 0.85rem 1.25rem;
+  transition:
+    border-color 0.16s,
+    background 0.16s;
+}
+
+.btn-outline:hover {
+  border-color: var(--color-pink);
+  background: var(--color-cream);
+}
+
+.chip {
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--color-muted);
+  transition:
+    background 0.16s,
+    color 0.16s,
+    border-color 0.16s;
+}
+
+.chip.on {
+  background: var(--color-pink);
+  border-color: var(--color-pink);
+  color: #fff;
+}
+
+.stamp {
+  border: 2px solid var(--color-pink);
+  border-radius: 8px;
+  color: var(--color-pink);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transform: rotate(-2deg);
+}
+
+.arch {
+  border-radius: 180px 180px 28px 28px;
+}
+
+.ticket {
+  border: 1px solid var(--color-line);
+  border-radius: 24px;
+  position: relative;
+}
+
+.ticket::before,
+.ticket::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: var(--color-eggshell);
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  top: 96px;
+}
+
+.ticket::before {
+  left: -11px;
+}
+
+.ticket::after {
+  right: -11px;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details[open] .pl {
+  transform: rotate(45deg);
+}
+
+details[open] .chev {
+  transform: rotate(180deg);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise {
+  animation: rise 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.rise-1 { animation-delay: 70ms; }
+.rise-2 { animation-delay: 140ms; }
+.rise-3 { animation-delay: 210ms; }
+.rise-4 { animation-delay: 280ms; }
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise,
+  .spin {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media print {
+  header,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+}
