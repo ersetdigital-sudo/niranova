@@ -2,6 +2,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Icon } from "@/components/Icons";
 import { BuyWidget } from "@/components/BuyWidget";
+import { getStorefront } from "@/lib/catalog-hydrate";
 import { ServiceCarousel } from "@/components/ServiceCarousel";
 
 const FAQ = [
@@ -30,7 +31,9 @@ const BENEFITS = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const storefront = await getStorefront();
+
   return (
     <>
       <Header variant="home" />
@@ -107,7 +110,7 @@ export default function Home() {
 
         {/* QUICK ORDER */}
         <section id="beli" className="relative z-10 max-w-6xl mx-auto px-5 -mt-16 md:-mt-20 scroll-mt-24">
-          <BuyWidget />
+          <BuyWidget services={storefront.services} games={storefront.games} />
         </section>
 
         {/* LAYANAN */}
